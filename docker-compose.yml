@@ -46,6 +46,24 @@ services:
     networks:
       - monitoring
 
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    restart: unless-stopped
+    privileged: true
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    expose:
+      - 8080
+    networks:
+      - monitoring
+
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
