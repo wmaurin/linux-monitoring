@@ -1,6 +1,6 @@
 # Linux Monitoring
 
-Basic Linux monitoring stack using Prometheus and Grafana.
+Basic Linux monitoring stack using Prometheus, Grafana, Node Exporter, and cAdvisor.
 
 ## Usage
 
@@ -12,20 +12,25 @@ docker compose down -v   # stop (reset everything)
 
 ## Components
 
-### Prometheus 
-Time-series database running on that scrapes and stores metrics from exporters
+### Prometheus
+
+Time-series database that scrapes and stores metrics from exporters.
 
 URL: http://localhost:9090
 
 ### Grafana
-Visualization platform for building dashboards and exploring metrics
+
+Visualization platform for building dashboards and exploring metrics.
 
 URL: http://localhost:3000 (admin / admin)
 
 ### Node Exporter
-Exposes host system metrics (CPU, memory, disk, network)
 
-URL: http://localhost:9100
+Exposes host system metrics (CPU, memory, disk, network).
+
+### cAdvisor
+
+Exposes Docker container metrics (CPU, memory, network) to Prometheus.
 
 ## Run on boot (systemd)
 
