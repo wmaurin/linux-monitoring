@@ -324,7 +324,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "rate(container_cpu_user_seconds_total{image!=\"\"}[5m]) * 100",
+          "expr": "sum by(name)(rate(container_cpu_user_seconds_total{image!=\"\"}[5m]) * 100)",
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
           "metric": "cpu",
@@ -420,7 +420,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "container_memory_usage_bytes{image!=\"\"}",
+          "expr": "sum by(name)(container_memory_usage_bytes{image!=\"\"})",
           "hide": false,
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
@@ -515,7 +515,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "irate(container_network_receive_bytes_total{image!=\"\"}[5m])",
+          "expr": "sum by(name)(irate(container_network_receive_bytes_total{image!=\"\"}[5m]))",
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
           "metric": "container_network_receive_bytes_total",
@@ -608,7 +608,7 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "irate(container_network_transmit_bytes_total{image!=\"\"}[5m])",
+          "expr": "sum by(name)(irate(container_network_transmit_bytes_total{image!=\"\"}[5m]))",
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
           "refId": "A",
