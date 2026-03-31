@@ -29,7 +29,7 @@ URL: http://localhost:9100
 
 ## Run on boot (systemd)
 
-Install the unit file and enable it:
+Update the `WorkingDirectory` path, install the unit file and enable it:
 
 ```bash
 sudo cp service/linux-monitoring.service /etc/systemd/system/linux-monitoring.service
